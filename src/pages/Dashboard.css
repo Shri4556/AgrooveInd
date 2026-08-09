@@ -1,0 +1,326 @@
+/* ==========================
+   GLOBAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #eef8ee;
+}
+
+/* ==========================
+   MAIN LAYOUT
+========================== */
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar {
+    width: 260px;
+    background: #2E7D32;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 30px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 14px 18px;
+    margin: 6px 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: .3s;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background: rgba(255,255,255,.18);
+    transform: translateX(5px);
+}
+
+/* ==========================
+   LOGOUT BUTTON
+========================== */
+
+.logout-btn {
+    margin-top: auto;
+    background: #D32F2F;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout-btn:hover {
+    background: #B71C1C;
+}
+
+/* ==========================
+   MAIN CONTENT
+========================== */
+
+.main-content {
+    margin-left: 260px;
+    flex: 1;
+    padding: 40px;
+    background: linear-gradient(135deg,#eef8ee,#d8f3dc);
+    min-height: 100vh;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header {
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    color: #2E7D32;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #555;
+    font-size: 18px;
+}
+
+/* ==========================
+   CARD GRID
+========================== */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 10px 20px rgba(0,0,0,.08);
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+
+/* ==========================
+   CARD ICON
+========================== */
+
+.card-icon {
+    font-size: 45px;
+    color: #2E7D32;
+    margin-bottom: 18px;
+}
+
+/* ==========================
+   CARD TITLE
+========================== */
+
+.card h3 {
+    color: #2E7D32;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* ==========================
+   CARD DESCRIPTION
+========================== */
+
+.card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .main-content{
+        margin-left:220px;
+        padding:30px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .main-content{
+        margin-left:0;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .header h1{
+        font-size:28px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .sidebar h2{
+        font-size:24px;
+    }
+
+}
+
+/* =================================
+   Manage Farms Card
+================================= */
+
+.dashboard-feature-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  width: 100%;
+  max-width: 500px;
+
+  padding: 20px 22px;
+  margin-top: 25px;
+
+  background: #ffffff;
+  border: 1px solid #e3e8df;
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dashboard-feature-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+  border-color: #6b8e45;
+}
+
+
+/* Icon */
+
+.feature-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #edf5e7;
+
+  border-radius: 14px;
+
+  font-size: 30px;
+
+  flex-shrink: 0;
+}
+
+
+/* Text */
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h3 {
+  margin: 0 0 6px;
+
+  font-size: 20px;
+
+  color: #2f4724;
+}
+
+.feature-content p {
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  color: #6b6b6b;
+}
+
+
+/* Arrow */
+
+.feature-arrow {
+  font-size: 28px;
+
+  color: #5d7f3d;
+
+  transition: transform 0.2s ease;
+}
+
+.dashboard-feature-card:hover .feature-arrow {
+  transform: translateX(5px);
+}

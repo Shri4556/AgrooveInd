@@ -1,0 +1,377 @@
+/* ===========================
+   GLOBAL
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #eef8ee;
+}
+
+/* ===========================
+   LOGIN CONTAINER
+=========================== */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #eef8ee, #d8f3dc);
+    padding: 20px;
+}
+
+/* ===========================
+   LOGIN CARD
+=========================== */
+
+.login-card {
+    width: 100%;
+    max-width: 480px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    animation: fade .6s ease;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo {
+    width: 90px;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+/* ===========================
+   TITLES
+=========================== */
+
+.title-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title-section h1 {
+    color: #2E7D32;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+h2 {
+    text-align: center;
+    color: #2E7D32;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.desc {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+.input-box {
+    position: relative;
+    margin: 18px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px 45px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.input-box input:focus {
+    border-color: #2E7D32;
+    box-shadow: 0 0 5px rgba(46,125,50,.3);
+}
+
+.icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2E7D32;
+    font-size: 17px;
+}
+
+
+    .eye{
+    position:absolute;
+    right:15px;
+    top:50%;
+    cursor:pointer;
+    color:#2E7D32;
+    font-size:18px;
+}
+
+
+.eye:hover {
+    color: #1B5E20;
+}
+
+/* ===========================
+   OPTIONS
+=========================== */
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+}
+
+.options input {
+    cursor: pointer;
+}
+
+/* ===========================
+   LOGIN BUTTON
+=========================== */
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #2E7D32;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.login-btn:hover {
+    background: #1B5E20;
+    transform: translateY(-2px);
+}
+
+.login-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#eef8ee,#d8f3dc);
+    padding:20px;
+}
+
+/* ===========================
+   signup Card
+=========================== */
+
+.signup-card{
+    width:100%;
+    max-width:480px;
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+ 
+.signup-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#eef8ee,#d8f3dc);
+    padding:20px;
+}
+
+.signup-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2e7d32; /* Matches the green theme */
+}
+
+.create-account-btn {
+  background-color: #2e7d32; /* Forest green from image */
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.create-account-btn:hover {
+  background-color: #1b5e20;
+}
+
+.login-link {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.login-link a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* ===========================
+   BUTTON GROUP
+=========================== */
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.forgot-btn {
+    background: #FFC107;
+    color: black;
+}
+
+.forgot-btn:hover {
+    background: #E0A800;
+}
+
+.create-account-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2E7D32;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.create-account-btn:hover{
+    background:#1B5E20;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   REGISTER
+=========================== */
+
+.register {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+}
+
+.register a {
+    color: #2E7D32;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:600px) {
+
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .title-section h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}

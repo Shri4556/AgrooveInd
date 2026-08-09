@@ -1,0 +1,165 @@
+.advisory-container {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #eef9ef, #dff3e2);
+}
+
+.advisory-card {
+  max-width: 950px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.advisory-card h1 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.back-dashboard-btn {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.back-dashboard-btn:hover {
+  background: #1b5e20;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.advisory-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 20px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form-group select {
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background: white;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #2e7d32;
+}
+
+.advisory-btn {
+  padding: 13px 22px;
+  border: none;
+  border-radius: 10px;
+  background: #2e7d32;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.advisory-btn:hover {
+  background: #256b29;
+}
+
+.advisory-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.advisory-error {
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #ffecec;
+  color: #c62828;
+  text-align: center;
+}
+
+.advisory-result {
+  margin-top: 35px;
+  padding: 30px;
+  border-radius: 16px;
+  background: #f7fcf7;
+  border: 1px solid #d8ecd9;
+}
+
+.advisory-result h2 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.advisory-description {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.advisory-section {
+  margin-top: 20px;
+  padding: 18px;
+  background: white;
+  border-radius: 12px;
+  border-left: 5px solid #2e7d32;
+}
+
+.advisory-section h3 {
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.advisory-section p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.advisory-image {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 25px;
+}
+
+@media (max-width: 768px) {
+  .advisory-container {
+    padding: 20px;
+  }
+
+  .advisory-card {
+    padding: 25px;
+  }
+
+  .advisory-form {
+    grid-template-columns: 1fr;
+  }
+
+  .advisory-btn {
+    width: 100%;
+  }
+}

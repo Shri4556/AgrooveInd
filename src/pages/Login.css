@@ -1,0 +1,279 @@
+/* ===========================
+   LOGIN PAGE
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background:#eef8ee;
+}
+
+/* ===========================
+   Main Container
+=========================== */
+
+.login-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#eef8ee,#d8f3dc);
+    padding:20px;
+}
+
+/* ===========================
+   Login Card
+=========================== */
+
+.login-card{
+    width:100%;
+    max-width:480px;
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.logo{
+    width:90px;
+    display:block;
+    margin:0 auto 15px;
+}
+
+/* ===========================
+   Heading
+=========================== */
+
+.title-section{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.title-section h1{
+    color:#2E7D32;
+    font-size:50px;
+    font-weight:700;
+}
+
+.subtitle{
+    color:#666;
+    font-size:16px;
+    margin-top:5px;
+}
+
+h2{
+    text-align:center;
+    color:#2E7D32;
+    margin-top:20px;
+    margin-bottom:10px;
+    font-size:30px;
+}
+
+.desc{
+    text-align:center;
+    color:#777;
+    margin-bottom:25px;
+}
+
+/* ===========================
+   Input Fields
+=========================== */
+
+
+.input-box{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px 45px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.input-box input:focus{
+    border-color:#2E7D32;
+    box-shadow:0 0 5px rgba(46,125,50,.3);
+}
+
+.icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(50%);
+    color: #2E7D32;
+    font-size: 16px;
+    
+  /* left: auto; */
+  right: 15px;
+}
+
+/* This ensures the icons are centered relative to the input field, not the whole block */
+.input-box .icon {
+  position: absolute;
+  top: 65%; /* Adjusted from 50% to align with the center of the input field */
+  transform: translateY(-50%);
+}
+
+/* Specific adjustment for the eye icon if it's separate */
+.input-box .toggle-password {
+  position: absolute;
+  top: 65%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+
+.eye{
+    position:absolute;
+    right:15px;
+    top:50%;
+    cursor:pointer;
+    color:#2E7D32;
+    font-size:18px;
+}
+
+.eye:hover{
+    color:#1B5E20;
+}
+
+/* ===========================
+   Remember Me
+=========================== */
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.options label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#555;
+}
+
+.options input{
+    cursor:pointer;
+}
+
+/* ===========================
+   Login Button
+=========================== */
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2E7D32;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#1B5E20;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   Forgot & Signup Buttons
+=========================== */
+
+.button-group{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.button-group button{
+    flex:1;
+    border:none;
+    border-radius:10px;
+    padding:12px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.forgot-btn{
+    background:#FFC107;
+    color:#000;
+}
+
+.forgot-btn:hover{
+    background:#E0A800;
+}
+
+.signup-btn{
+    background:#28A745;
+    color:white;
+}
+
+.signup-btn:hover{
+    background:#218838;
+}
+
+/* ===========================
+   Register Link (Optional)
+=========================== */
+
+.register{
+    text-align:center;
+    margin-top:20px;
+    color:#555;
+}
+
+.register a{
+    color:#2E7D32;
+    text-decoration:none;
+    font-weight:bold;
+    margin-left:5px;
+}
+
+.register a:hover{
+    text-decoration:underline;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:600px){
+
+    .login-card{
+        padding:30px 20px;
+    }
+
+    .title-section h1{
+        font-size:38px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    .button-group{
+        flex-direction:column;
+    }
+
+}

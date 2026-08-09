@@ -1,0 +1,142 @@
+.manage-farms-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #f5f7f2;
+}
+
+.farm-card {
+  max-width: 850px;
+  margin: auto;
+  padding: 35px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.farm-card h1 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.farm-card h2 {
+  margin-top: 25px;
+  margin-bottom: 18px;
+}
+
+.farm-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.farm-input label {
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.farm-input input,
+.farm-input select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.farm-input input:focus,
+.farm-input select:focus {
+  outline: none;
+  border-color: #4f7d32;
+}
+
+.add-farm-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #4f7d32;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-farm-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.farm-list {
+  margin-top: 35px;
+}
+
+.farm-item {
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.farm-item h3 {
+  margin-top: 0;
+}
+
+.farm-item p {
+  margin: 7px 0;
+}
+
+.no-farms {
+  color: #777;
+  text-align: center;
+  padding: 20px;
+}
+
+.back-dashboard-btn {
+  margin-top: 25px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+}
+
+.farm-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.edit-btn {
+  background: #e8f1df;
+  color: #42652b;
+}
+
+.edit-btn:hover {
+  background: #d8e8ca;
+}
+
+.delete-btn {
+  background: #fde8e8;
+  color: #b42318;
+}
+
+.delete-btn:hover {
+  background: #f8d2d2;
+}
