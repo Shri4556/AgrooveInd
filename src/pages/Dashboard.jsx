@@ -1,7 +1,6 @@
 import "./Dashboard.css";
 import Navbar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, signOut } from "firebase/auth";
 // import { useNavigate } from "react-router-dom";
 import {
   FaUser,
@@ -15,29 +14,127 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
+import { useState, useEffect } from "react";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from "recharts";
+
+
 function Dashboard() {
 
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+  console.log("Logged-in user:", user);
+  
+  const [cropAreaData, setCropAreaData] = useState([]);
 
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const [farmSummary, setFarmSummary] = useState({
+  totalFarms: 0,
+  totalLand: 0,
+  totalCrops: 0,
+  });
+ const [chartLoading, setChartLoading] = useState(true);
+ const [chartError, setChartError] = useState("");
+
+ useEffect(() => {
+  const fetchCropArea = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        throw new Error("Please log in to view crop area data.");
+      }
+
+      const response = await fetch("http://localhost:5000/api/farms", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to load farm data.");
+      }
+
+      const result = await response.json();
+      const farms = result.farms || [];
+const cropTotals = {};
+
+let totalLand = 0;
+const uniqueCrops = new Set();
+
+farms.forEach((farm) => {
+  const area = Number(farm.area);
+
+  // Convert land area to hectares
+  if (Number.isFinite(area) && area >= 0) {
+    const areaInHectares =
+      farm.areaUnit === "Acres"
+        ? area * 0.404686
+        : area;
+
+    totalLand += areaInHectares;
+  }
+
+  // Count different crop types
+  const crop = farm.mainCrop?.trim();
+
+  if (crop) {
+    uniqueCrops.add(crop);
+  }
+});
+
+// Save summary values for the cards
+setFarmSummary({
+  totalFarms: farms.length,
+  totalLand: Number(totalLand.toFixed(2)),
+  totalCrops: uniqueCrops.size,
+});
+
+      farms.forEach((farm) => {
+        const crop = farm.mainCrop?.trim();
+        const area = Number(farm.area);
+
+        if (!crop || !Number.isFinite(area) || area < 0) {
+          return;
+        }
+
+        // Convert every area to hectares.
+        const areaInHectares =
+          farm.areaUnit === "Acres" ? area * 0.404686 : area;
+
+        cropTotals[crop] =
+          (cropTotals[crop] || 0) + areaInHectares;
+      });
+
+      setCropAreaData(
+        Object.entries(cropTotals).map(([crop, area]) => ({
+          crop,
+          area: Number(area.toFixed(2)),
+        }))
+      );
+    } catch (error) {
+      console.error("Crop area chart error:", error);
+      setChartError(error.message);
+    } finally {
+      setChartLoading(false);
+    }
+  };
+
+  fetchCropArea();
+}, []);
 
  const handleLogout = () => {
-
-  signOut(auth)
-    .then(() => {
-
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  
       alert("Logged Out Successfully");
-
-      navigate("/");
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-
+      navigate("/");    
 };
 
   return (
@@ -107,8 +204,9 @@ function Dashboard() {
           <div className="header">
 
           <h1>
-            Welcome,
-            {user ? ` ${user.email}` : " Farmer"} 👋
+            Welcome, {user?.role === "admin"
+           ? "Admin"
+           : user?.fullName || "Farmer"} 👋
           </h1>
 
           <p>
@@ -116,6 +214,115 @@ function Dashboard() {
           </p>
 
         </div>
+
+  {/* Dashboard Summary Cards */}
+<div className="summary-cards">
+
+  {/* Total Farms */}
+  <div className="summary-card farms-card">
+    <div className="summary-icon">🌱</div>
+    <div>
+      <p>Total Farms</p>
+      <h2>{farmSummary.totalFarms}</h2>
+      <span>Registered farms</span>
+    </div>
+  </div>
+
+  {/* Total Land */}
+  <div className="summary-card land-card">
+    <div className="summary-icon">🌾</div>
+    <div>
+      <p>Total Land</p>
+      <h2>{farmSummary.totalLand} ha</h2>
+      <span>Total cultivated area</span>
+    </div>
+  </div>
+
+  {/* Total Crops */}
+  <div className="summary-card crops-card">
+    <div className="summary-icon">🌿</div>
+    <div>
+      <p>Total Crops</p>
+      <h2>{farmSummary.totalCrops}</h2>
+      <span>Different crop types</span>
+    </div>
+  </div>
+
+</div>
+
+
+{/* Crop Area Chart */}
+<div className="crop-chart-card">
+  <h2>Crop Area by Type</h2>
+  <p className="chart-description">
+    Total cultivated area in hectares
+  </p>
+
+  {chartLoading ? (
+    <p>Loading crop area data...</p>
+  ) : chartError ? (
+    <p className="chart-message">{chartError}</p>
+  ) : cropAreaData.length === 0 ? (
+    <p className="chart-message">
+      No farm data available. Add a farm to view your chart.
+    </p>
+  ) : (
+    <div className="crop-chart">
+      <ResponsiveContainer width="100%" height={220}>
+  <BarChart
+    data={cropAreaData}
+    margin={{ top: 10, right: 20, left: 0, bottom: 5 }}
+    barCategoryGap="35%"
+  >
+    <CartesianGrid
+      strokeDasharray="3 3"
+      vertical={false}
+      stroke="#e5e7eb"
+    />
+
+    <XAxis
+      dataKey="crop"
+      axisLine={false}
+      tickLine={false}
+      tick={{ fill: "#555", fontSize: 12 }}
+    />
+
+    <YAxis
+      axisLine={false}
+      tickLine={false}
+      tick={{ fill: "#666", fontSize: 12 }}
+      label={{
+        value: "Area (hectares)",
+        angle: -90,
+        position: "insideLeft",
+        style: { fill: "#666", fontSize: 12 },
+      }}
+    />
+
+    <Tooltip
+      formatter={(value) => [
+        `${Number(value).toFixed(2)} hectares`,
+        "Crop area",
+      ]}
+      contentStyle={{
+        borderRadius: "10px",
+        border: "1px solid #e0e8df",
+      }}
+    />
+
+    <Bar
+      dataKey="area"
+      name="Crop area"
+      fill="#2e8b57"
+      radius={[6, 6, 0, 0]}
+      maxBarSize={70}
+    />
+  </BarChart>
+</ResponsiveContainer>
+    </div>
+  )}
+</div>
+
 
         {/* Cards */}
 

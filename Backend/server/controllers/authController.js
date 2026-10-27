@@ -26,7 +26,8 @@ const signup = async (req, res) => {
             fullName,
             email,
             phone,
-            password: hashedPassword
+            password: hashedPassword,
+            role: "farmer"
         });
 
         res.status(201).json({
@@ -72,11 +73,24 @@ const login = async (req, res) => {
             });
         }
 
-        const token = jwt.sign(
-            { userId: user._id },
-            process.env.JWT_SECRET,
-            { expiresIn: "1d" }
-        );
+        let role = "farmer";
+        if (
+            process.env.ADMIN_EMAIL &&
+         user.email.trim().toLowerCase() ===
+        process.env.ADMIN_EMAIL.trim().toLowerCase()
+          ) {
+             role = "admin";
+             await user.save();
+              }
+
+         const token = jwt.sign(
+         {
+          userId: user._id,
+          userRole: role,
+          },
+         process.env.JWT_SECRET,
+          { expiresIn: "1d" }
+         );
 
         res.json({
             message: "Login successful!",
@@ -85,7 +99,8 @@ const login = async (req, res) => {
                 id: user._id,
                 fullName: user.fullName,
                 email: user.email,
-                phone: user.phone
+                phone: user.phone,
+                role: role,
             }
         });
 

@@ -1,3 +1,4 @@
+const { type } = require("firebase/firestore/pipelines");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
@@ -85,7 +86,14 @@ const userSchema = new mongoose.Schema(
     experience: {
       type: Number,
       default: null
-    }
+    },
+
+    role: {
+      type: String,
+     enum: ["farmer", "admin"],
+     default: "farmer"
+     }
+
   },
   { timestamps: true }
 );

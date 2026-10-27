@@ -163,3 +163,335 @@
     width: 100%;
   }
 }
+
+/* =====================================
+   ADVISORY PAGE - SPACING IMPROVEMENTS
+===================================== */
+
+/* Main advisory page */
+.advisory-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 30px auto;
+  padding: 36px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(30, 80, 40, 0.08);
+}
+
+/* Main page headings */
+.advisory-container h1 {
+  text-align: center;
+  color: #287a3b;
+  margin: 24px 0 12px;
+  line-height: 1.35;
+}
+
+.advisory-container > p {
+  text-align: center;
+  color: #647067;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* Admin management heading */
+.admin-advisory h2 {
+  color: #287a3b;
+  font-size: 27px;
+  text-align: center;
+  margin: 34px 0 26px;
+}
+
+/* Create, edit and search sections */
+.advisory-form-section,
+.admin-advisory,
+.edit-advisory-section,
+.advisory-search-section {
+  margin-top: 28px;
+  margin-bottom: 32px;
+}
+
+/* Give form sections a clear card appearance */
+.advisory-form-section,
+.edit-advisory-section,
+.advisory-search-section {
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e2ebdf;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(30, 80, 40, 0.05);
+}
+
+/* Section titles */
+.advisory-form-section h3,
+.edit-advisory-section h3,
+.advisory-search-section h3 {
+  margin: 0 0 24px;
+  padding-bottom: 14px;
+  color: #286b38;
+  font-size: 21px;
+  line-height: 1.4;
+  border-bottom: 1px solid #e4ece1;
+}
+
+/* Form layout */
+.advisory-form-grid,
+.advisory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+/* Individual form fields */
+.advisory-form-grid > div,
+.advisory-grid > div {
+  min-width: 0;
+  margin-bottom: 2px;
+}
+
+/* Labels */
+.advisory-container label {
+  display: block;
+  margin-bottom: 10px;
+  color: #344638;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Input fields */
+.advisory-container input,
+.advisory-container select,
+.advisory-container textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #d5e1d1;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #27362a;
+  font-size: 15px;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.advisory-container input,
+.advisory-container select {
+  min-height: 46px;
+}
+
+.advisory-container textarea {
+  min-height: 105px;
+  resize: vertical;
+}
+
+.advisory-container input:focus,
+.advisory-container select:focus,
+.advisory-container textarea:focus {
+  border-color: #318346;
+  box-shadow: 0 0 0 3px rgba(49, 131, 70, 0.12);
+}
+
+/* Buttons */
+.advisory-container button {
+  min-height: 44px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 9px;
+  background: #2e7d32;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.advisory-container button:hover {
+  background: #256629;
+  transform: translateY(-1px);
+}
+
+/* Keep action buttons separated from fields and sections */
+.advisory-form-section button,
+.edit-advisory-section button,
+.advisory-search-section button {
+  margin-top: 20px;
+}
+
+/* Edit existing advisory selector */
+.advisory-container select {
+  cursor: pointer;
+}
+
+.advisory-container .advisory-selector {
+  margin-bottom: 24px;
+}
+
+/* Search form layout */
+.advisory-search-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: end;
+}
+
+/* Separate sections without crowding */
+.advisory-container hr {
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid #dce7d8;
+}
+
+/* Tablet layout */
+@media (max-width: 850px) {
+  .advisory-container {
+    margin: 20px auto;
+    padding: 24px;
+  }
+
+  .advisory-form-grid,
+  .advisory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .advisory-search-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 560px) {
+  .advisory-container {
+    margin: 12px;
+    padding: 18px;
+    width: auto;
+    border-radius: 14px;
+  }
+
+  .advisory-container h1 {
+    font-size: 25px;
+  }
+
+  .admin-advisory h2 {
+    font-size: 22px;
+  }
+
+  .advisory-form-section,
+  .edit-advisory-section,
+  .advisory-search-section {
+    padding: 18px;
+    margin-top: 22px;
+    margin-bottom: 24px;
+  }
+
+  .advisory-form-grid,
+  .advisory-grid,
+  .advisory-search-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .advisory-container button {
+    width: 100%;
+  }
+}
+
+/* Final spacing and readability improvements */
+
+.advisory-container {
+  max-width: 1250px;
+  width: calc(100% - 40px);
+  margin: 28px auto;
+  padding: 36px;
+}
+
+.advisory-container h1 {
+  font-size: 32px;
+}
+
+.admin-advisory h2 {
+  font-size: 28px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.advisory-form-section,
+.edit-advisory-section,
+.advisory-search-section {
+  padding: 32px;
+  margin-top: 30px;
+  margin-bottom: 36px;
+}
+
+.advisory-container label {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.advisory-container input,
+.advisory-container select,
+.advisory-container textarea {
+  font-size: 15px;
+  padding: 13px 15px;
+}
+
+.advisory-container textarea {
+  min-height: 120px;
+}
+
+.advisory-container button {
+  min-height: 46px;
+  padding: 13px 26px;
+}
+
+.advisory-form-section button {
+  min-width: 220px;
+  margin-top: 24px;
+}
+
+@media (max-width: 560px) {
+  .advisory-container {
+    width: calc(100% - 20px);
+    padding: 18px;
+    margin: 10px auto;
+  }
+
+  .advisory-form-section,
+  .edit-advisory-section,
+  .advisory-search-section {
+    padding: 18px;
+  }
+}
+
+/* Remove the extra outer white box */
+.advisory-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 20px !important;
+}
+
+/* Keep one clean white box for the main page */
+.advisory-container > .advisory-page {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive spacing */
+@media (max-width: 600px) {
+  .advisory-container {
+    padding: 8px !important;
+  }
+
+  .advisory-container > .advisory-page {
+    padding: 18px;
+    border-radius: 12px;
+  }
+}
+
