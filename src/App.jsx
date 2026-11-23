@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import ManageFarms from "./pages/ManageFarms";
 import Advisory from "./pages/Advisory";
 import Activity from "./pages/Activity";
+import Weather from "./pages/Weather";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -46,6 +47,9 @@ function App() {
             path="/activities"
             element={<Activity />}
           />
+
+           <Route path="/weather"
+            element={<Weather />} />
 
         </Route>
 
